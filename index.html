@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <div class="hLogo">
+                <p class="h">H</p>
+            </div>
+            <p class="helpDesk">HelpDesk</p>
+        </div>
+        <div>
+
+        </div>
+    </header>
+    <main>
+        <section class="introduction">
+
+            <h1>Gestion des demandes</h1>
+            <p class="text">Suivez et gérez les incidents informatiques.</p>
+            <div class="demande">
+
+                <div class="part">
+                    <h2>Créer une demande</h2>
+                    <p class="text">Décrivez votre problème informatique.</p>
+                </div>
+
+                <div class="champs">
+                    <form>
+                        <div class="form laire">
+                            <div class="formtitre">
+                                <label for="titre">Titre du problème *</label><br>
+                                <input type="text" id="titre">
+                            </div>
+                            <div class=" form catégorie">
+                                <label for="catégorie">Catégorie *</label><br>
+                                <select id="catégorie">
+                                    <option value="Réseau">Réseau</option>
+                                    <option value="Logiciel">Logiciel</option>
+                                    <option value="Matériel">Matériel</option>
+                                </select>
+                            </div>
+                            <div class="form priorité">
+                                <label for="priorité">Priorité *</label><br>
+                                <select name="priorité" id="priorité">
+                                    <option value="Haute">Haute</option>
+                                    <option value="Normale">Normale</option>
+                                    <option value="Basse">Basse</option>
+                                </select>
+                            </div>
+                            <div class=" form description">
+                                <label for="descrip">Description *</label><br>
+                                <input type="" id="descrip" placeholder=" Décrivez votre problème...">
+                            </div>
+                        </div>
+                        <div class="">
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <button id="bottonAjouter" >＋ Ajouter la demande</button>
+
+
+        </section>
+        <section class="liste">
+            <div class="enTete">
+                <div class="part">
+                    <h2>Liste des demandes</h2>
+                    <div class="dem">
+                        <p class=" demande Ndemande">3</p>
+                        <p class="demande">demande</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div id="tickets-container" >
+                <article id ="ticket">
+
+                
+                
+                </article>
+                <article id="ticket1">
+                    <div class="ident">
+                        <p class="symbol">⌁</p>
+                        <p>HD-001</p>
+                    </div>
+                    <div>
+                        <h3>Connexion Wi-Fi instable</h3>
+                        <p id="D">Le réseau se déconnecte régulièrement.</p>
+                        <div id="type">
+                            <p class="R">Réseau</p>
+                            <p class="H">Haute</p>
+                        </div>
+                        <hr>
+                        <div id="actions">
+                            <button id="bottonSupprimer">♜ Supprimer</button>
+                            <button id="bottonModifier">✎ Modifier</button>
+                        </div>
+                        
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+    <footer>
+
+    </footer>
+
+</body>
+<script src="js/script.js"></script>
+</html>
+
+<!-- 
+<script>
+    
+    const botton =document.querySelector("boton")
+    const tick =document.getElementById("ticket")
+    // const b1= document .querySelector("h1")
+    botton.addEventListener("click"){
+        tick.append("hello")
+    }
+    
+</script> -->

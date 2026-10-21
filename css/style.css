@@ -1,0 +1,193 @@
+
+.logo{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    align-items: center;
+    
+}
+.logo .hLogo .h{
+    background-color: #202A38;
+    padding: 0px 12px;
+    border: #202A38;
+    border-radius: 5px;
+    color: #FFFFFF;
+    padding: 8px;
+    
+}
+.logo .helpDesk {
+    color: #202A38;
+}
+.introduction {
+    width: 100%;
+    /* background-color: #EAF0F9; */
+    padding-top: 15px;
+
+}
+.introduction .text {
+    color: #8792A1;
+    font-size: 11px;
+}
+.introduction .demande{
+    border:1px solid #8792A1;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #FFFFFF;
+}
+.introduction .botton{
+    width: 100%;
+    background-color: #252F3E;
+    border-radius: 7px;
+    text-align: center;
+    margin-top: 15px;
+}
+#bottonAjouter {
+    background-color: #252F3E;
+    border-radius: 10px;
+    border-style: none;
+    color: white;
+    width: 100%;
+    margin-top: 10px;
+    padding: 5px;
+}
+
+.introduction .botton .ajoute{
+    height: 15px;
+    width: 15px;
+}
+.introduction .demande .part .text{
+    color:  #8A95A4;
+    font-size: 11px;
+}
+form .formulaire{
+    display: grid;
+    grid-template-columns: repeat(1fr);
+    gap: 10px;
+}
+form .form input ,select{
+    border:1px solid #8A95A4 ;
+    border-radius: 7px;
+    width: 100%;
+    height: 40px;
+}
+.liste .enTete .part {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    margin-top: 20px;
+}
+.liste .enTete .part .dem {
+    display: flex;
+    flex-direction: row;
+    gap: 2px;
+}
+.liste .enTete .part .dem .demande{
+    border:1px solid #EBEFF4;
+    border-radius: 10px;
+    background-color: #EBEFF4;
+}
+#tickets-container{
+    display: grid;
+    grid-template-columns: repeat(1fr);
+    gap: 10px;
+    margin-top: 15px;
+}
+.liste .tickets-container .ticket {
+    border: 1px solid #5C697B;
+    background-color: #252F3E;
+    height: 50px;
+}
+
+
+
+.liste .tickets .ticket .desc .ident{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+/* #ticket {
+    border: 1px  #202A38;
+    border-radius: 10px;
+} */
+hr{
+    color: #EDF0F3;
+}
+#actions{
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 10px;
+    padding: 10px;
+}
+#bottonModifier{
+    color: #617084;
+    background: none;
+    border: none;
+}
+#bottonSupprimer{
+    color: #CC626A;
+    border: none;
+    background: none;
+}
+#ticket1{
+    border: 1px solid #202A38;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 0px 10px;
+}
+#ticket1 .ident{
+    display: flex;
+    justify-content: space-between;
+    padding: 8px;
+    color: #587397;
+}
+
+#ticket1 .ident .symbol{
+    background-color: #EAF0F9;
+    padding: 10px 15px;
+    border-radius: 10px;
+}
+#type{
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+
+    padding: 0px 10px ;
+}
+#D{
+    color: #8D99A8;
+}
+#type .R{
+    color: #64748B;
+    background-color: #F0F3F7;
+    border-radius: 10px;
+    width: 60px;
+    text-align: center;
+}
+#type .H{
+    color: #BA6444;
+    background-color: #FFF0E8;
+    border-radius: 10px;
+    width: 60px;
+    text-align: center;
+}
+@media( min-width : 768px){
+    form .formulaire{
+        grid-template-columns: repeat(2,1fr);
+        gap: 15px;
+    }
+   
+    .introduction .botton {
+        width: 25%;
+      
+    }
+}
+@media( min-width :1024px){
+    form .formulaire{
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+}
