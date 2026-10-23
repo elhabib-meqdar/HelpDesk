@@ -1,12 +1,19 @@
 
-.logo{
+
+#EnTete{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+#logo{
     display: flex;
     flex-direction: row;
     gap: 5px;
     align-items: center;
     
 }
-.logo .hLogo .h{
+#h{
     background-color: #202A38;
     padding: 0px 12px;
     border: #202A38;
@@ -15,8 +22,12 @@
     padding: 8px;
     
 }
-.logo .helpDesk {
+.EnTete .logo .helpDesk {
     color: #202A38;
+}
+#entrepriseName{
+    display: none;
+    color: #8A95A4;
 }
 .introduction {
     width: 100%;
@@ -75,119 +86,191 @@ form .form input ,select{
     justify-content: space-between;
     flex-direction: row;
     margin-top: 20px;
+    height: 30px;
+    align-items: center;
 }
-.liste .enTete .part .dem {
+#cartesOuTableau{
+    display: flex;
+    background-color: #EDF0F4;
+    width: 224px;
+    height: 42px;
+    align-items: center;
+    gap: 10px;
+    display: none;
+}
+#Cartes{
+    background-color: #FFFFFF;
+    width: 107px;
+    border: none;
+    border-radius: 10px;
+    height: 34px;
+}
+#Tableau{
+    background: none;
+    border: none;
+    width: 107px;
+    height: 34px;
+}
+#Ndemande
+ {
+    background-color: #EBEFF4;
+    border-radius: 10px;
+   width: 100px;
+   height: 30px;
+   align-items: center;
+   
     display: flex;
     flex-direction: row;
     gap: 2px;
 }
-.liste .enTete .part .dem .demande{
-    border:1px solid #EBEFF4;
-    border-radius: 10px;
-    background-color: #EBEFF4;
-}
+
 #tickets-container{
     display: grid;
     grid-template-columns: repeat(1fr);
     gap: 10px;
     margin-top: 15px;
 }
-.liste .tickets-container .ticket {
-    border: 1px solid #5C697B;
-    background-color: #252F3E;
-    height: 50px;
+#ticketsContaine{
+    display: grid;
+    grid-template-columns: repeat(1fr);
 }
-
-
-
-.liste .tickets .ticket .desc .ident{
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
-}
-
-/* #ticket {
-    border: 1px  #202A38;
+#ticketsContainer .ticket{
+    border: 1px solid #8792A1;
     border-radius: 10px;
-} */
-hr{
-    color: #EDF0F3;
+    padding: 10px;
+    margin-top: 10px;
 }
-#actions{
-    display: flex;
-    flex-direction: row-reverse;
-    gap: 10px;
+#ticketsContainer .ticket .logoAndId .logoR{
+   
+    border-radius: 10px;
+    background-color: #EAF0F9;
+    color: #587397;
     padding: 10px;
 }
-#bottonModifier{
-    color: #617084;
-    background: none;
-    border: none;
-}
-#bottonSupprimer{
-    color: #CC626A;
-    border: none;
-    background: none;
-}
-#ticket1{
-    border: 1px solid #202A38;
+#ticketsContainer .ticket .logoAndId .logoL{
+    background-color: #F1EAF9;
     border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 10px;
-    padding: 0px 10px;
-}
-#ticket1 .ident{
-    display: flex;
-    justify-content: space-between;
-    padding: 8px;
     color: #587397;
+    padding: 10px;
 }
-
-#ticket1 .ident .symbol{
-    background-color: #EAF0F9;
-    padding: 10px 15px;
+#ticketsContainer .ticket .logoAndId .logoM{
+    color: #587397;
     border-radius: 10px;
+    background-color: #E9F5F1;
+    padding: 10px;
 }
-#type{
+#ticketsContainer .ticket .logoAndId {
     display: flex;
     justify-content: space-between;
-    width: 80%;
-
-    padding: 0px 10px ;
 }
-#D{
+#ticketsContainer .ticket .problemDescription{
     color: #8D99A8;
+    font-size: 11px;
 }
-#type .R{
-    color: #64748B;
-    background-color: #F0F3F7;
-    border-radius: 10px;
-    width: 60px;
-    text-align: center;
+#ticketsContainer .ticket .typeAndPriorité{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
 }
-#type .H{
+#ticketsContainer .ticket .typeAndPriorité .problemTypeH{
     color: #BA6444;
     background-color: #FFF0E8;
     border-radius: 10px;
-    width: 60px;
+    width: 66px;
     text-align: center;
 }
+#ticketsContainer .ticket .typeAndPriorité .problemTypeN{
+    color: #A67A2B;
+    background-color: #FFF5DF;
+    border-radius: 10px;
+    width: 66px;
+    text-align: center;
+}
+#ticketsContainer .ticket .typeAndPriorité .problemTypeB{
+    color: #388867;
+    background-color: #E8F6EE;
+    border-radius: 10px;
+    width: 66px;
+    text-align: center;
+}
+#ticketsContainer .ticket .typeAndPriorité .problemcatégorie{
+    color: #64748B;
+    background-color: #F0F3F7;
+    border-radius: 10px;
+    width: 66px;
+    text-align: center;
+}
+#ticketsContainer .ticket .ligne{
+    color: #EDF0F3;
+}
+#ticketsContainer .ticket .actions{
+    display: flex;
+    flex-direction: row-reverse;
+}
+#ticketsContainer .ticket .actions .bottonModifier{
+    background: none;
+    border: none;
+    color: #617084;
+}
+#ticketsContainer .ticket .actions .bottonSupprime{
+    background: none;
+    border: none;
+    color: #CC626A;
+}
+
+
+
+
+
+
 @media( min-width : 768px){
+    #men{
+        display: none;
+    }
+    #entrepriseName{
+        display: flex;
+    }
     form .formulaire{
         grid-template-columns: repeat(2,1fr);
         gap: 15px;
     }
-   
-    .introduction .botton {
-        width: 25%;
-      
+    .introduction .demande .champs .laire{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
     }
+    .introduction .buttonn{
+        display: flex;
+        justify-content: flex-end;
+        flex-direction: column-reverse;
+        width: 25%;
+    }
+    #ticketsContainer{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        gap: 15px;
+    }
+    .liste .enTete .part{
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+    }
+    #cartesOuTableau{
+        display: flex;
+    }
+    
 }
 @media( min-width :1024px){
-    form .formulaire{
+    .introduction .demande .champs .laire{
         grid-template-columns: repeat(3, 1fr);
+    }
+    .introduction .demande .champs .laire .description{
+        grid-column: 1/4;
+        height: 70px;
+    }
+    #ticketsContainer{
+        grid-template-columns: repeat(3,1fr);
+        gap: 15px;
     }
 
 }

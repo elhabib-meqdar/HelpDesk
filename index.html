@@ -11,13 +11,16 @@
 
 <body>
     <header>
-        <div class="logo">
-            <div class="hLogo">
-                <p class="h">H</p>
+        <div id="EnTete">
+            <div id="logo">
+                <div class="hLogo">
+                    <p id="h">H</p>
+                </div>
+                <p class="helpDesk">HelpDesk</p>
             </div>
-            <p class="helpDesk">HelpDesk</p>
-        </div>
-        <div>
+            <p id="men">☰</p>
+            <p id="entrepriseName">Atlas Solutions / Support</p>
+            
 
         </div>
     </header>
@@ -67,49 +70,28 @@
                     </form>
                 </div>
             </div>
-            <button id="bottonAjouter" >＋ Ajouter la demande</button>
-
+            <div class="buttonn">
+                <button id="bottonAjouter" >＋ Ajouter la demande</button>
+            </div>
 
         </section>
         <section class="liste">
             <div class="enTete">
                 <div class="part">
                     <h2>Liste des demandes</h2>
-                    <div class="dem">
-                        <p class=" demande Ndemande">3</p>
-                        <p class="demande">demande</p>
-                    </div>
-
+                    <div id="Ndemande">
+                        
                 </div>
+                <div id="cartesOuTableau">
+                    <button id="Cartes">▦  Cartes</button>
+                    <button id="Tableau">☷  Tableau</button>
+                </div>
+
+                
 
             </div>
 
-            <div id="tickets-container" >
-                <article id ="ticket">
-
-                
-                
-                </article>
-                <article id="ticket1">
-                    <div class="ident">
-                        <p class="symbol">⌁</p>
-                        <p>HD-001</p>
-                    </div>
-                    <div>
-                        <h3>Connexion Wi-Fi instable</h3>
-                        <p id="D">Le réseau se déconnecte régulièrement.</p>
-                        <div id="type">
-                            <p class="R">Réseau</p>
-                            <p class="H">Haute</p>
-                        </div>
-                        <hr>
-                        <div id="actions">
-                            <button id="bottonSupprimer">♜ Supprimer</button>
-                            <button id="bottonModifier">✎ Modifier</button>
-                        </div>
-                        
-                    </div>
-                </article>
+            <div id="ticketsContainer" >
             </div>
         </section>
     </main>
@@ -121,14 +103,4 @@
 <script src="js/script.js"></script>
 </html>
 
-<!-- 
-<script>
-    
-    const botton =document.querySelector("boton")
-    const tick =document.getElementById("ticket")
-    // const b1= document .querySelector("h1")
-    botton.addEventListener("click"){
-        tick.append("hello")
-    }
-    
-</script> -->
+
