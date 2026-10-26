@@ -22,8 +22,9 @@ let tab = [
         id:3,
     }
 ]
+localStorage.setItem("tickets",JSON.stringify(tab));
 
-let contneur=4
+
 
 const Ndemande =document.getElementById("Ndemande");
 const titre = document.getElementById("titre");
@@ -46,46 +47,66 @@ const valeuPriorité = priorité.value;
 const valeuDescrip = descrip.value; 
 
 
-let boulen =false
 
-const nombreDeTicket =document.createElement("p")
-Ndemande.append(nombreDeTicket)
-nombreDeTicket.textContent=(tab.length)
+let contneur=4
+let nbtTicket=0
+let indexTicketModifier=""
 
-const demande =document.createElement("p")
-Ndemande.append(demande)
-if(tab.length<=1){
-    demande.textContent=("demande")
-}else{
-    demande.textContent=("demandes")
+
+
+function nombreDeTicket(){
+    Ndemande.textContent=""
+    const nombreDeTicket =document.createElement("p")
+        Ndemande.append(nombreDeTicket)
+        nombreDeTicket.textContent=nbtTicket
+
+        const demande =document.createElement("p")
+        Ndemande.append(demande)
+        if(nbtTicket<=1){
+            demande.textContent=("demande")
+        }else{
+            demande.textContent=("demandes")
+        }
 }
 
+afficherTickets()
 
 ajouter.addEventListener("click", (e) => {
     e.preventDefault();
-    if(titre.value==="" || catégorie.value==="" || priorité.value==="" || description.value===""){
-        
-        return
-    }
-    if( boulen ===true){
-        
-        return
-    }
-    
+
     const valeuTitre = titre.value;
     const valeucatégorie = catégorie.value;
     const valeuPriorité = priorité.value;
     const valeuDescrip = descrip.value;
-
-    const information = {
-        id :contneur,
-        titre: valeuTitre,
-        catégorie: valeucatégorie,
-        priorité: valeuPriorité,
-        description: valeuDescrip
+    if(valeuTitre==="" || valeucatégorie==="" || valeuPriorité==="" || valeuDescrip==""){
+    
+        return
     }
-    contneur++
-    tab.push(information)
+    if(indexTicketModifier !==""){
+        
+        tab[indexTicketModifier].titre= valeuTitre
+        tab[indexTicketModifier].catégorie = valeucatégorie
+        tab[indexTicketModifier].priorité=  valeuPriorité
+        tab[indexTicketModifier].description = valeuDescrip
+        indexTicketModifier =""
+        nbtTicket=""
+    }else{
+
+        const information = {
+            id :contneur,
+            titre: valeuTitre,
+            catégorie: valeucatégorie,
+            priorité: valeuPriorité,
+            description: valeuDescrip
+        }
+        contneur++
+        tab.push(information)
+    }
+    
+    localStorage.setItem("tickets",JSON.stringify(tab));
+   
+
+    
     idnetité=contneur
     titre.value = ""
     catégorie.value = ""
@@ -97,150 +118,156 @@ ajouter.addEventListener("click", (e) => {
 
 
 
+
+
+
 function afficherTickets() {
     ticketList.textContent = "";
+    nbtTicket=0
     for (let i = 0; i < tab.length; i++) {
-
+        nbtTicket++
         
-        
-        const ticket = document.createElement("article")
-        ticketList.append(ticket)
-        ticket.classList.add("ticket")
+        afficjerParCartes()
 
-        const logoAndId =document.createElement("div")
-        ticket.appendChild(logoAndId)
-        logoAndId.classList.add("logoAndId")
+        nombreDeTicket()
 
-        const logo =document.createElement("p")
-        logoAndId.append(logo)
-        givelogo()
+        function afficjerParCartes(){
+            const ticket = document.createElement("article")
+            ticketList.append(ticket)
+            ticket.classList.add("ticket")
 
-        const idnetité =document.createElement("p")
-        logoAndId.append(idnetité)
-        idnetité.textContent=("HD-"+tab[i].id)
-        idnetité.classList.add("idnetité")
-        const nbr=tab[i].id
+            const logoAndId =document.createElement("div")
+            ticket.appendChild(logoAndId)
+            logoAndId.classList.add("logoAndId")
 
-        const champ = document.createElement("h3");
-        champ.textContent = tab[i].titre;
-        ticket.append(champ)
-        champ.classList.add("probblemTiter")
+            const logo =document.createElement("p")
+            logoAndId.append(logo)
+            givelogo()
 
-        const champ3 = document.createElement("p");
-        ticket.append(champ3)
-        champ3.textContent = tab[i].description;
-        champ3.classList.add("problemDescription")
+            const idnetité =document.createElement("p")
+            logoAndId.append(idnetité)
+            idnetité.textContent=("HD-"+tab[i].id)
+            idnetité.classList.add("idnetité")
+            const nbr=tab[i].id
 
-        const slecte = document.createElement("div")
-        ticket.append(slecte)
-        slecte.classList.add("typeAndPriorité")
+            const champ = document.createElement("h3");
+            champ.textContent = tab[i].titre;
+            ticket.append(champ)
+            champ.classList.add("probblemTiter")
 
-        const champ1 = document.createElement("p");
-        champ1.textContent = tab[i].catégorie;
-        slecte.append(champ1)
-        champ1.classList.add("problemcatégorie")
+            const champ3 = document.createElement("p");
+            ticket.append(champ3)
+            champ3.textContent = tab[i].description;
+            champ3.classList.add("problemDescription")
 
-        const champ2 = document.createElement("p");
-        champ2.textContent = tab[i].priorité;
-        slecte.append(champ2)
-        giveClass()
+            const slecte = document.createElement("div")
+            ticket.append(slecte)
+            slecte.classList.add("typeAndPriorité")
 
-        const ligne = document.createElement("hr")
-        ticket.append(ligne)
-        ligne.classList.add("ligne")
+            const champ1 = document.createElement("p");
+            champ1.textContent = tab[i].catégorie;
+            slecte.append(champ1)
+            champ1.classList.add("problemcatégorie")
 
-        const actions = document.createElement("div")
-        ticket.append(actions)
-        actions.classList.add("actions")
+            const champ2 = document.createElement("p");
+            champ2.textContent = tab[i].priorité;
+            slecte.append(champ2)
+            giveClass()
 
-        const modifier =document.createElement("button")
-        modifier.textContent="✎ Modifier"
-        actions.append(modifier)
-        modifier.classList.add("bottonModifier")
-        modifier.addEventListener("click", () =>{
-            boulen==true
-            modifierTicket(nbr);
-        })
+            const ligne = document.createElement("hr")
+            ticket.append(ligne)
+            ligne.classList.add("ligne")
 
-        const supprime = document.createElement("button")
-        supprime.textContent = "♜ Supprimer"
-        actions.append(supprime)
-        supprime.classList.add("bottonSupprime")
-        supprime.addEventListener("click", () =>{
-            if (confirm("vous voulez suprimer cette ticket")===false){
-                return
+            const actions = document.createElement("div")
+            ticket.append(actions)
+            actions.classList.add("actions")
+
+            const modifier =document.createElement("button")
+            modifier.textContent="✎ Modifier"
+            actions.append(modifier)
+            modifier.classList.add("bottonModifier")
+
+            modifier.addEventListener("click", () =>{
+                boulen=true
+                console.log(boulen)
+                modifierTicket(nbr);
+            })
+
+
+            const supprime = document.createElement("button")
+            supprime.textContent = "♜ Supprimer"
+            actions.append(supprime)
+            supprime.classList.add("bottonSupprime")
+
+            supprime.addEventListener("click", () =>{
+                if (confirm("vous voulez suprimer cette ticket")===false){
+                    return
+                }
+                supprimerTicket(nbr);
+            })
+
+            function giveClass(){
+                if(valeuPriorité == "Haute"){
+                    champ2.classList.add("problemTypeH")
+                }else if(valeuPriorité =="Normale") {
+                    champ2.classList.add("problemTypeN")
+                    
+                } else {
+                    champ2.classList.add("problemTypeB")
+                }
             }
-            supprimerTicket(nbr);
 
         
 
-        })
-        
-
-        function supprimerTicket(a){
-            
-            const index =tab.findIndex(i =>i.id ===a)
-            console.log(index)
-            if(index !== -1){
-                tab.splice(index,1)
-            }
-            ticket.remove()
-        }
-        function giveClass(){
-            if(valeuPriorité == "Haute"){
-                champ2.classList.add("problemTypeH")
-            }else if(valeuPriorité =="Normale") {
-                champ2.classList.add("problemTypeN")
+            function supprimerTicket(a){
+                const index =tab.findIndex(i =>i.id ===a)
                 
-            } else {
-                champ2.classList.add("problemTypeB")
+                if(index !== -1){
+                    tab.splice(index,1)
+                    localStorage.setItem("tickets",JSON.stringify(tab))
+                }
+                afficherTickets()
+                nbtTicket--
             }
-        }
-
-        function givelogo(){
-            if (tab[i].catégorie === "Réseau") {
-                logo.textContent="⌁"
-                logo.classList.add("logoR")
-
-            }else if (tab[i].catégorie ==="Logiciel"){
-                logo.textContent="▣"
-                logo.classList.add("logoL")
-
-            }else{
-                logo.textContent="⌨"
-                logo.classList.add("logoM")
-            }
-        }  
-        function Ndemande(){
-
-        }  
-        function modifierTicket(a){
-            const index =tab.findIndex(i =>i.id ===a)
-            titre.value = tab[index].titre
-            catégorie.value = tab[index].catégorie
-            priorité.value = tab[index].priorité
-            description.value = tab[index].description
             
-        }
-        function replace(a){
-            const index =tab.findIndex(i =>i.id ===a)
-                tab[index].titre= titre.value 
-                tab[index].catégorie = catégorie.value
-                tab[index].priorité= priorité.value
-                tab[index].description =description.value
-            }
+            function givelogo(){
+                if (tab[i].catégorie === "Réseau") {
+                    logo.textContent="⌁"
+                    logo.classList.add("logoR")
+
+                }else if (tab[i].catégorie ==="Logiciel"){
+                    logo.textContent="▣"
+                    logo.classList.add("logoL")
+
+                }else{
+                    logo.textContent="⌨"
+                    logo.classList.add("logoM")
+                }
+            } 
         
-    }
+           
+    
+        }
+        
+
+        function modifierTicket(a){
+                    const index =tab.findIndex(i =>i.id ===a)
+                    titre.value = tab[index].titre
+                    catégorie.value = tab[index].catégorie
+                    priorité.value = tab[index].priorité
+                    description.value = tab[index].description
+                    indexTicketModifier =index
+            
+
+        }
+
+    }   
+
+
 }
 
 
-
-
-
-
-
-
-
+nombreDeTicket()
 
 
 
